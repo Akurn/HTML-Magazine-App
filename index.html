@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>HTML Magazine App</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <meta name="apple-mobile-web-app-title" content="HMA">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Should be 'black', but broken in iOS7+ -->
+        <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
+        <link rel="stylesheet" href="css/hma.css">
+
+        <!-- User Styles -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+
+
+        <div id="app-wrapper" class="app-container">
+            <div class="navigation">
+                <header>
+                    <a href="#" class="btn-home">Home</a>
+                </header>
+                <footer>
+                    <a href="#" class="btn-pg-selector">Drag Page</a>
+                </footer>
+            </div>
+            <section>
+                <!-- Page title content -->
+                <h1>Title</h1>
+            </section>
+            <section>
+                <!-- Index page content -->
+                <h1>Index</h1>
+                <ul>
+                    <li><a href="#linked_page_id_10">Go to page 2 -&gt;</a></li>
+                    <li><a href="#linked_page_id_11">Go to page 3 -&gt;</a></li>
+                </ul>
+            </section>
+            <section>
+                <!-- Page 1 content -->
+                <h1>1</h1>
+            </section>
+            <section id="linked_page_id_10">
+                <section class="sub-section">
+                    <!-- Page 2 sub section 1 -->
+                    <h1>2A</h1>
+                </section>
+                <section class="sub-section">
+                    <!-- Page 2 sub section 2 -->
+                    <h1>2B</h1>
+                </section>
+            </section>
+
+            <!-- Uncomment to enable orientation notice -->
+            <!-- <section class="orientation-notice portrait"><h1>Rotate Device</h1></section> -->
+        </div>
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+        <!-- HTML Magazine App JS -->
+        <script src="js/hma-0.1.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#app-wrapper').HMA();
+            });
+        </script>
+    </body>
+</html>

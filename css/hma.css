@@ -1,0 +1,87 @@
+/* ==========================================================================
+   HTML5 Magazine App styles -- Should not be edited
+   ========================================================================== */
+.app-container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+}
+
+.app-container section {
+    position: absolute;
+}
+.app-container>section {
+    left: 100%;
+    top: 0;
+}
+.app-container>section[data-hma="0"] {
+    left: 0;
+}
+.app-container>section[data-hma="-1"] {
+    left: -100%;
+}
+.app-container>section[data-hma="1"] {
+    left: 100%;
+}
+
+.app-container>section>.sub-section {
+    left: 0;
+    top: 100%;
+}
+.app-container>section>.sub-section[data-hma-sub="0"] {
+    top: 0;
+}
+.app-container>section>.sub-section[data-hma-sub="-1"] {
+    top: -100%;
+}
+.app-container>section>.sub-section[data-hma-sub="1"] {
+    top: 100%;
+}
+
+.app-container>.navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.app-container>.navigation header,
+.app-container>.navigation footer {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+}
+.app-container>.navigation footer {
+    top: auto;
+    bottom: 0;
+    height: 100px;
+}
+
+.app-container>.navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+.app-container>.navigation .btn-home {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.app-container>.navigation .btn-pg-selector {
+    border-radius: 5px;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+} 
+
+.app-container>.orientation-notice {
+    left: 0 !important;
+}
+
