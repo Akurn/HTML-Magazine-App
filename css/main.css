@@ -69,25 +69,28 @@ textarea {
 html, body {
     font-family: 'Oswald', sans-serif;
 }
-
 h1 {
     font-size: 10em;
     margin: 0.5em;
     text-transform: uppercase;
 }
-section {
-    background: #5d7172;
-    color: #ffffff;
-}
-section:nth-child(odd) {
-    background: #ffffff;
-    color: #5d7172;
-}
-
 a {
     color: inherit;
     font-size: 1.4em;
     text-decoration: none;
+}
+section {
+    background: #5d7172;
+    color: #ffffff;
+}
+section:nth-of-type(even) {
+    background: #ffffff;
+    color: #5d7172;
+}
+.orientation-notice {
+    font-size: 5em;
+    margin: 10% auto;
+    text-align: center;
 }
 
 

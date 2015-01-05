@@ -9,6 +9,7 @@
         startposX,
         startposY,
         mousedown,
+        swiping,
         numPages;
 
     var threshold = 200;
@@ -30,6 +31,8 @@
         $(window).bind('touchmove mousemove', function(e){
             e.preventDefault();
 
+            swiping = true;
+
             if (!animating && mousedown) {
                 var diffX = startposX - ((e.originalEvent.changedTouches) ? e.originalEvent.changedTouches[0].pageX : e.originalEvent.pageX);
                 var diffY = startposY - ((e.originalEvent.changedTouches) ? e.originalEvent.changedTouches[0].pageY : e.originalEvent.pageY);
@@ -45,6 +48,7 @@
         });
         $(window).bind('touchend mouseup', function(e){
             mousedown = false;
+            swiping = false;
 
             var diffX = startposX - ((e.originalEvent.changedTouches) ? e.originalEvent.changedTouches[0].pageX : e.originalEvent.pageX);
             var diffY = startposY - ((e.originalEvent.changedTouches) ? e.originalEvent.changedTouches[0].pageY : e.originalEvent.pageY);
@@ -107,15 +111,17 @@
         });
     
         //stop nav triggering on selection of onscreen items
-        $('a, video, audio, button').on('tap', function(e){
+        $('a, video, audio, button').bind('touchend', function(e){
             e.stopPropagation();
         })
         //display nav on tap
-        $('body').on("tap", function(e) {
-            if ($nav.hasClass('open')) {
-                $nav.removeClass('open').fadeOut(300);
-            } else {
-                $nav.addClass('open').fadeIn(300);
+        $('body').bind('touchend', function(e) {
+            if (!swiping) {
+                if ($nav.hasClass('open')) {
+                    $nav.removeClass('open').fadeOut(300);
+                } else {
+                    $nav.addClass('open').fadeIn(300);
+                }
             }
         });
         
@@ -201,9 +207,17 @@
         //check rotation notices
         $(window).on("orientationchange",function(e){
             $('.orientation-notice').hide();
-            var $notice = $('.orientation-notice.' + e.orientation);
-            if ($notice.length) {
-                $notice.show();
+
+            if (typeof window.orientation == "number") {
+                var orientation = "portrait";
+                if (Math.abs(window.orientation) == 90) {
+                    orientation = "landscape";
+                }
+                var $notice = $('.orientation-notice.' + orientation);
+                console.log($notice);
+                if ($notice.length) {
+                    $notice.show();
+                }
             }
         }).trigger('orientationchange');
 
