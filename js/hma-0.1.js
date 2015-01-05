@@ -1,4 +1,4 @@
-//HTML5 Magazine App - HMA v0.1.7
+//HTML5 Magazine App - HMA v0.1.8
 (function($) {
     
     var $magEl,
